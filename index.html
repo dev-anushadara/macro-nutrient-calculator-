@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MacroFuel – Macro Nutrient Calculator</title>
+  <meta name="description" content="Calculate your daily caloric needs and personalized macro breakdown for proteins, carbs, and fats based on your body metrics and fitness goal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">MacroFuel</span>
+      </div>
+      <p class="tagline">Your personalized nutrition blueprint</p>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="main-layout">
+
+      <!-- Input Panel -->
+      <section class="card input-panel" aria-label="Personal Details Form">
+        <h2 class="card-title">
+          <span class="step-badge">01</span>
+          Your Details
+        </h2>
+
+        <!-- Gender -->
+        <div class="form-group">
+          <label class="form-label">Biological Sex</label>
+          <div class="toggle-group" id="gender-group" role="radiogroup" aria-label="Biological Sex">
+            <button class="toggle-btn active" id="btn-male" data-value="male" role="radio" aria-checked="true" onclick="selectToggle('gender-group', this)">
+              <span class="toggle-icon">♂</span> Male
+            </button>
+            <button class="toggle-btn" id="btn-female" data-value="female" role="radio" aria-checked="false" onclick="selectToggle('gender-group', this)">
+              <span class="toggle-icon">♀</span> Female
+            </button>
+          </div>
+        </div>
+
+        <!-- Age -->
+        <div class="form-group">
+          <label class="form-label" for="age">Age <span class="unit-badge">years</span></label>
+          <div class="input-wrapper">
+            <input type="number" id="age" class="form-input" placeholder="25" min="10" max="100" aria-describedby="age-hint" />
+          </div>
+          <span id="age-hint" class="input-hint">Enter your age between 10–100</span>
+        </div>
+
+        <!-- Unit System -->
+        <div class="form-group">
+          <label class="form-label">Unit System</label>
+          <div class="toggle-group" id="unit-group" role="radiogroup" aria-label="Unit System">
+            <button class="toggle-btn active" id="btn-metric" data-value="metric" role="radio" aria-checked="true" onclick="selectToggle('unit-group', this); switchUnits()">
+              Metric (kg / cm)
+            </button>
+            <button class="toggle-btn" id="btn-imperial" data-value="imperial" role="radio" aria-checked="false" onclick="selectToggle('unit-group', this); switchUnits()">
+              Imperial (lb / in)
+            </button>
+          </div>
+        </div>
+
+        <!-- Weight -->
+        <div class="form-group">
+          <label class="form-label" for="weight">Weight <span class="unit-badge" id="weight-unit">kg</span></label>
+          <div class="input-wrapper">
+            <input type="number" id="weight" class="form-input" placeholder="70" min="1" max="500" step="0.1" />
+          </div>
+        </div>
+
+        <!-- Height -->
+        <div class="form-group" id="height-metric-group">
+          <label class="form-label" for="height-cm">Height <span class="unit-badge">cm</span></label>
+          <div class="input-wrapper">
+            <input type="number" id="height-cm" class="form-input" placeholder="175" min="50" max="300" />
+          </div>
+        </div>
+        <div class="form-group hidden" id="height-imperial-group">
+          <label class="form-label">Height</label>
+          <div class="dual-input">
+            <div class="input-wrapper">
+              <input type="number" id="height-ft" class="form-input" placeholder="5" min="1" max="9" />
+              <span class="input-suffix">ft</span>
+            </div>
+            <div class="input-wrapper">
+              <input type="number" id="height-in" class="form-input" placeholder="9" min="0" max="11" />
+              <span class="input-suffix">in</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Level -->
+        <div class="form-group">
+          <label class="form-label" for="activity">Activity Level</label>
+          <div class="select-wrapper">
+            <select id="activity" class="form-select">
+              <option value="1.2">🛋️ Sedentary (little or no exercise)</option>
+              <option value="1.375">🚶 Lightly Active (1–3 days/week)</option>
+              <option value="1.55" selected>🏃 Moderately Active (3–5 days/week)</option>
+              <option value="1.725">💪 Very Active (6–7 days/week)</option>
+              <option value="1.9">🔥 Super Active (athlete / physical job)</option>
+            </select>
+            <span class="select-arrow">▾</span>
+          </div>
+        </div>
+
+        <!-- Fitness Goal -->
+        <div class="form-group">
+          <label class="form-label">Fitness Goal</label>
+          <div class="goal-grid" id="goal-group" role="radiogroup" aria-label="Fitness Goal">
+            <button class="goal-btn" id="goal-loss" data-value="loss" role="radio" aria-checked="false" onclick="selectGoal(this)">
+              <span class="goal-icon">🔥</span>
+              <span class="goal-name">Fat Loss</span>
+              <span class="goal-desc">–20% calories</span>
+            </button>
+            <button class="goal-btn active" id="goal-maintain" data-value="maintain" role="radio" aria-checked="true" onclick="selectGoal(this)">
+              <span class="goal-icon">⚖️</span>
+              <span class="goal-name">Maintain</span>
+              <span class="goal-desc">TDEE calories</span>
+            </button>
+            <button class="goal-btn" id="goal-gain" data-value="gain" role="radio" aria-checked="false" onclick="selectGoal(this)">
+              <span class="goal-icon">💪</span>
+              <span class="goal-name">Muscle Gain</span>
+              <span class="goal-desc">+15% calories</span>
+            </button>
+          </div>
+        </div>
+
+        <button class="calculate-btn" id="calculate-btn" onclick="calculate()">
+          <span class="btn-text">Calculate My Macros</span>
+          <span class="btn-icon">→</span>
+        </button>
+        <p class="error-msg hidden" id="error-msg">⚠️ Please fill in all fields correctly.</p>
+      </section>
+
+      <!-- Results Panel -->
+      <section class="results-panel" id="results-panel" aria-live="polite">
+
+        <!-- Placeholder state -->
+        <div class="placeholder-state" id="placeholder-state">
+          <div class="placeholder-icon">🥗</div>
+          <h3>Your results will appear here</h3>
+          <p>Fill in your details and hit <strong>Calculate</strong> to get your personalized macro plan.</p>
+        </div>
+
+        <!-- Results content (hidden initially) -->
+        <div class="results-content hidden" id="results-content">
+
+          <!-- Calorie Summary -->
+          <div class="card calorie-card">
+            <h2 class="card-title">
+              <span class="step-badge">02</span>
+              Daily Calorie Target
+            </h2>
+            <div class="calorie-stats">
+              <div class="stat-item">
+                <span class="stat-value" id="bmr-val">—</span>
+                <span class="stat-label">BMR</span>
+                <span class="stat-sub">Basal Metabolic Rate</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-value" id="tdee-val">—</span>
+                <span class="stat-label">TDEE</span>
+                <span class="stat-sub">Total Daily Energy</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item highlight">
+                <span class="stat-value" id="target-val">—</span>
+                <span class="stat-label">TARGET</span>
+                <span class="stat-sub" id="goal-label-sub">Goal Calories</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Macro Breakdown -->
+          <div class="card macro-card">
+            <h2 class="card-title">
+              <span class="step-badge">03</span>
+              Macro Breakdown
+            </h2>
+
+            <!-- Donut Chart -->
+            <div class="chart-container">
+              <svg class="donut-chart" id="donut-chart" viewBox="0 0 200 200" role="img" aria-label="Macro breakdown donut chart">
+                <circle class="donut-bg" cx="100" cy="100" r="80" />
+                <circle class="donut-protein" id="arc-protein" cx="100" cy="100" r="80"
+                  stroke-dasharray="0 502.65" stroke-dashoffset="125.66" />
+                <circle class="donut-carbs" id="arc-carbs" cx="100" cy="100" r="80"
+                  stroke-dasharray="0 502.65" stroke-dashoffset="125.66" />
+                <circle class="donut-fat" id="arc-fat" cx="100" cy="100" r="80"
+                  stroke-dasharray="0 502.65" stroke-dashoffset="125.66" />
+                <text x="100" y="94" class="donut-center-label">TARGET</text>
+                <text x="100" y="114" class="donut-center-value" id="donut-cal">—</text>
+                <text x="100" y="128" class="donut-center-sub">kcal/day</text>
+              </svg>
+              <div class="chart-legend">
+                <div class="legend-item">
+                  <span class="legend-dot protein-dot"></span>
+                  <span class="legend-text">Protein</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-dot carbs-dot"></span>
+                  <span class="legend-text">Carbs</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-dot fat-dot"></span>
+                  <span class="legend-text">Fat</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Macro Bars -->
+            <div class="macro-bars">
+
+              <div class="macro-bar-item" id="macro-protein">
+                <div class="macro-bar-header">
+                  <div class="macro-info">
+                    <span class="macro-dot protein-dot"></span>
+                    <span class="macro-name">Protein</span>
+                    <span class="macro-pct" id="pct-protein">—%</span>
+                  </div>
+                  <div class="macro-values">
+                    <span class="macro-g" id="g-protein">— g</span>
+                    <span class="macro-kcal" id="kcal-protein">— kcal</span>
+                  </div>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill protein-fill" id="bar-protein" style="width:0%"></div>
+                </div>
+              </div>
+
+              <div class="macro-bar-item" id="macro-carbs">
+                <div class="macro-bar-header">
+                  <div class="macro-info">
+                    <span class="macro-dot carbs-dot"></span>
+                    <span class="macro-name">Carbohydrates</span>
+                    <span class="macro-pct" id="pct-carbs">—%</span>
+                  </div>
+                  <div class="macro-values">
+                    <span class="macro-g" id="g-carbs">— g</span>
+                    <span class="macro-kcal" id="kcal-carbs">— kcal</span>
+                  </div>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill carbs-fill" id="bar-carbs" style="width:0%"></div>
+                </div>
+              </div>
+
+              <div class="macro-bar-item" id="macro-fat">
+                <div class="macro-bar-header">
+                  <div class="macro-info">
+                    <span class="macro-dot fat-dot"></span>
+                    <span class="macro-name">Fats</span>
+                    <span class="macro-pct" id="pct-fat">—%</span>
+                  </div>
+                  <div class="macro-values">
+                    <span class="macro-g" id="g-fat">— g</span>
+                    <span class="macro-kcal" id="kcal-fat">— kcal</span>
+                  </div>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fat-fill" id="bar-fat" style="width:0%"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Meal Split -->
+          <div class="card meal-card">
+            <h2 class="card-title">
+              <span class="step-badge">04</span>
+              Meal Split <span class="meal-count-badge" id="meal-count-badge">3 meals</span>
+            </h2>
+            <div class="meal-selector">
+              <label class="form-label" for="meal-count">Meals per day</label>
+              <input type="range" id="meal-count" class="range-slider" min="2" max="6" value="3" oninput="updateMealSplit()" />
+              <div class="range-labels">
+                <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+            </div>
+            <div class="meal-grid" id="meal-grid"></div>
+          </div>
+
+          <!-- Tips -->
+          <div class="card tips-card">
+            <h2 class="card-title">
+              <span class="step-badge">💡</span>
+              Pro Tips
+            </h2>
+            <ul class="tips-list" id="tips-list"></ul>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p>MacroFuel · Built with ❤️ · For informational purposes only. Consult a dietitian for medical advice.</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
