@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anusha Dara – Resume</title>
+  <style>
+    /* ATS-SAFE: Simple, clean, single-column layout */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10.5pt;
+      color: #000;
+      background: #fff;
+      line-height: 1.45;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 36px 44px;
+      background: #fff;
+    }
+
+    /* ── Name & Header ── */
+    .name {
+      font-size: 22pt;
+      font-weight: bold;
+      text-align: center;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .role {
+      font-size: 10pt;
+      text-align: center;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    .contacts {
+      text-align: center;
+      font-size: 9.5pt;
+      color: #111;
+      margin-bottom: 2px;
+    }
+    .contacts a {
+      color: #000;
+      text-decoration: none;
+    }
+    .separator { margin: 0 6px; color: #666; }
+
+    /* ── Section ── */
+    .section { margin-top: 14px; }
+
+    .section-title {
+      font-size: 10.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 2px;
+      margin-bottom: 8px;
+    }
+
+    /* ── Project Entry ── */
+    .entry { margin-bottom: 10px; }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .entry-title {
+      font-weight: bold;
+      font-size: 10.5pt;
+    }
+
+    .entry-links {
+      font-size: 9pt;
+      color: #1a0dab;
+      white-space: nowrap;
+    }
+    .entry-links a {
+      color: #1a0dab;
+      text-decoration: underline;
+    }
+    .entry-links .sep { margin: 0 4px; color: #666; }
+
+    .entry-sub {
+      font-size: 9.5pt;
+      color: #333;
+      font-style: italic;
+      margin-bottom: 3px;
+    }
+
+    .entry-tags {
+      font-size: 9pt;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    ul.bullets {
+      margin-left: 18px;
+      margin-top: 3px;
+    }
+    ul.bullets li {
+      font-size: 10pt;
+      margin-bottom: 2px;
+      line-height: 1.45;
+    }
+
+    /* ── Skills ── */
+    .skill-row {
+      font-size: 10pt;
+      margin-bottom: 4px;
+    }
+    .skill-row strong { font-weight: bold; }
+
+    /* ── Education ── */
+    .edu-entry { margin-bottom: 8px; }
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .edu-degree { font-weight: bold; font-size: 10.5pt; }
+    .edu-date { font-size: 9.5pt; color: #333; }
+    .edu-school { font-size: 10pt; color: #222; }
+    .edu-gpa { font-size: 9.5pt; color: #333; }
+
+    /* ── Certifications ── */
+    .cert-entry { margin-bottom: 4px; font-size: 10pt; }
+
+    /* ── Print ── */
+    @media print {
+      body { font-size: 10pt; }
+      .page { padding: 20px 32px; max-width: 100%; }
+      .no-print { display: none !important; }
+      a { color: #1a0dab !important; text-decoration: underline !important; }
+    }
+
+    /* ── Print Button (screen only) ── */
+    .no-print {
+      text-align: center;
+      padding: 24px 0 8px;
+    }
+    .print-btn {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 28px;
+      font-size: 10pt;
+      font-family: Arial, sans-serif;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+    }
+    .print-btn:hover { background: #222; }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── NAME & CONTACT ── -->
+  <div class="name">ANUSHA DARA</div>
+  <div class="role">Full Stack Developer | Frontend Developer</div>
+  <div class="contacts">
+    <a href="tel:9381903958">9381903958</a>
+    <span class="separator">|</span>
+    <a href="mailto:anushadara999@gmail.com">anushadara999@gmail.com</a>
+    <span class="separator">|</span>
+    Sathupally, Khammam, Telangana
+  </div>
+  <div class="contacts" style="margin-top:2px;">
+    GitHub: <a href="https://github.com/dev-anushadara">github.com/dev-anushadara</a>
+    <span class="separator">|</span>
+    Open to Relocate
+  </div>
+
+  <!-- ── PROFESSIONAL SUMMARY ── -->
+  <div class="section">
+    <div class="section-title">Professional Summary</div>
+    <p style="font-size:10pt;line-height:1.5;">
+      Entry-level Full Stack Developer with hands-on experience building responsive, interactive web applications
+      using HTML5, CSS3, JavaScript, and React.js. Proficient in REST API integration, Python scripting, and
+      deploying projects via GitHub Pages and Vercel. Strong problem-solving ability with a keen eye for UI/UX
+      and a commitment to writing clean, maintainable code. Actively seeking a developer role to contribute to
+      real-world projects in a collaborative environment.
+    </p>
+  </div>
+
+  <!-- ── TECHNICAL SKILLS ── -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <div class="skill-row"><strong>Languages:</strong> HTML5, CSS3, JavaScript (ES6+), Python, SQL</div>
+    <div class="skill-row"><strong>Frameworks &amp; Libraries:</strong> React.js, Bootstrap, CSS Grid, Flexbox</div>
+    <div class="skill-row"><strong>Tools &amp; Platforms:</strong> Git, GitHub, GitHub Pages, Vercel, VS Code, Jupyter Notebook</div>
+    <div class="skill-row"><strong>Concepts:</strong> REST APIs, Responsive Web Design, SVG Animation, ATS-Optimized Development, Cross-Browser Compatibility</div>
+  </div>
+
+  <!-- ── PROJECTS ── -->
+  <div class="section">
+    <div class="section-title">Projects</div>
+
+    <!-- MacroFuel -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">MacroFuel – Macro Nutrient Calculator</span>
+        <span class="entry-links">
+          Live: <a href="https://dev-anushadara.github.io/macro-nutrient-calculator-/" target="_blank">dev-anushadara.github.io/macro-nutrient-calculator-/</a>
+          <span class="sep">|</span>
+          GitHub: <a href="https://github.com/dev-anushadara/macro-nutrient-calculator-" target="_blank">github.com/dev-anushadara/macro-nutrient-calculator-</a>
+        </span>
+      </div>
+      <div class="entry-tags"><strong>Tech Stack:</strong> HTML5, CSS3, Vanilla JavaScript, SVG Animation, Responsive Design</div>
+      <ul class="bullets">
+        <li>Built a fully responsive, dark-mode macro nutrient calculator using pure HTML5, CSS3, and Vanilla JavaScript with zero external dependencies</li>
+        <li>Implemented the Mifflin-St Jeor equation to calculate BMR and TDEE; supports three fitness goals: Fat Loss, Maintenance, and Muscle Gain</li>
+        <li>Designed and animated an SVG donut chart and CSS progress bars to dynamically visualize Protein, Carbohydrate, and Fat macro ratios</li>
+        <li>Developed a meal split slider (2–6 meals/day) with weighted calorie and macro distribution per meal</li>
+        <li>Integrated Metric and Imperial unit systems with real-time conversion; deployed on GitHub Pages</li>
+      </ul>
+    </div>
+
+    <!-- User Dashboard -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">User Dashboard – Admin Interface</span>
+        <span class="entry-links">
+          Live: <a href="https://user-dashboard-lemon-psi.vercel.app/" target="_blank">user-dashboard-lemon-psi.vercel.app</a>
+          <span class="sep">|</span>
+          GitHub: <a href="https://github.com/dev-anushadara/user-dashboard" target="_blank">github.com/dev-anushadara/user-dashboard</a>
+        </span>
+      </div>
+      <div class="entry-tags"><strong>Tech Stack:</strong> JavaScript, HTML5, CSS3, Bootstrap, REST APIs</div>
+      <ul class="bullets">
+        <li>Developed a responsive admin dashboard with dynamic data rendering using REST API integration for real-time user data fetching and display</li>
+        <li>Designed a clean, intuitive UI with Bootstrap components; deployed on Vercel for production-ready hosting</li>
+      </ul>
+    </div>
+
+    <!-- Tourism Website -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Tourism Website – Travel Destination Portal</span>
+        <span class="entry-links">
+          Live: <a href="https://dev-anushadara.github.io/tourism-website/" target="_blank">dev-anushadara.github.io/tourism-website/</a>
+          <span class="sep">|</span>
+          GitHub: <a href="https://github.com/dev-anushadara/tourism-website-2025" target="_blank">github.com/dev-anushadara/tourism-website-2025</a>
+        </span>
+      </div>
+      <div class="entry-tags"><strong>Tech Stack:</strong> HTML5, CSS3, Bootstrap</div>
+      <ul class="bullets">
+        <li>Created a mobile-first, fully responsive travel portal showcasing destinations with an interactive image carousel and structured content layout</li>
+        <li>Applied Bootstrap grid system for consistent cross-device rendering; deployed on GitHub Pages</li>
+      </ul>
+    </div>
+
+    <!-- Food Munch -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Food Munch – Restaurant Website</span>
+        <span class="entry-links">
+          Live: <a href="https://dev-anushadara.github.io/Food_Munch_Websites/" target="_blank">dev-anushadara.github.io/Food_Munch_Websites/</a>
+          <span class="sep">|</span>
+          GitHub: <a href="https://github.com/dev-anushadara/Food_Munch_Websites" target="_blank">github.com/dev-anushadara/Food_Munch_Websites</a>
+        </span>
+      </div>
+      <div class="entry-tags"><strong>Tech Stack:</strong> HTML5, CSS3, CSS Grid, Flexbox</div>
+      <ul class="bullets">
+        <li>Designed and developed a fully responsive restaurant website with menu sections and promotional banners using CSS Grid and Flexbox layouts</li>
+        <li>Ensured cross-browser compatibility and seamless user experience across desktop, tablet, and mobile viewports</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ── EDUCATION ── -->
+  <div class="section">
+    <div class="section-title">Education</div>
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <span class="edu-degree">Master of Business Administration (MBA) – Human Resources</span>
+        <span class="edu-date">07/2022 – 01/2025</span>
+      </div>
+      <div class="edu-school">Sai Spurthi Institute of Technology, Khammam, Telangana</div>
+      <div class="edu-gpa">CGPA: 7.4 / 10.0</div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <span class="edu-degree">Bachelor of Science (B.Sc.) – Computer Science</span>
+        <span class="edu-date">07/2019 – 05/2022</span>
+      </div>
+      <div class="edu-school">Vanita Degree College for Women, Hyderabad, Telangana</div>
+      <div class="edu-gpa">CGPA: 8.5 / 10.0</div>
+    </div>
+  </div>
+
+  <!-- ── CERTIFICATIONS ── -->
+  <div class="section">
+    <div class="section-title">Certifications</div>
+    <div class="cert-entry">&#8226; <strong>Python 101 for Data Science</strong> – IBM Developer Skills Network</div>
+    <div class="cert-entry">&#8226; <strong>Hands-on Python Online Course</strong> – Frontlines EduTech Private Limited</div>
+  </div>
+
+  <!-- ── ACHIEVEMENTS ── -->
+  <div class="section">
+    <div class="section-title">Achievements</div>
+    <ul class="bullets">
+      <li>Maintained a CGPA of 8.5 in B.Sc. Computer Science, demonstrating consistent academic excellence</li>
+      <li>Built and deployed 4 full web projects with live URLs across GitHub Pages and Vercel</li>
+      <li>Completed IBM-certified Python for Data Science course, showcasing commitment to continuous learning</li>
+      <li>Developed MacroFuel, a zero-dependency health calculator with advanced SVG animation, deployed on GitHub Pages</li>
+    </ul>
+  </div>
+
+  <!-- ── SOFT SKILLS ── -->
+  <div class="section">
+    <div class="section-title">Soft Skills</div>
+    <p style="font-size:10pt;">Problem-Solving &nbsp;|&nbsp; Analytical Thinking &nbsp;|&nbsp; Attention to Detail &nbsp;|&nbsp; Team Collaboration &nbsp;|&nbsp; Communication &nbsp;|&nbsp; Adaptability &nbsp;|&nbsp; Quick Learner</p>
+  </div>
+
+</div><!-- end .page -->
+
+<!-- Print Button -->
+<div class="no-print">
+  <button class="print-btn" onclick="window.print()">&#128438; Save as PDF / Print</button>
+  <p style="font-size:9pt;color:#666;margin-top:8px;">Tip: Set Margins to "None", enable "Background Graphics" for best results</p>
+</div>
+
+</body>
+</html>
